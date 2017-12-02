@@ -1,0 +1,39 @@
+#NumeClient {
+/*background-color: #e6faff;*/
+-webkit-transform: rotate(-90deg);
+/*-moz-transform: rotate(-90deg);*/
+width: 200px;
+position: absolute;
+left: 100px;
+top: 300px;
+}
+
+#Localitate {
+/*background-color: #e6faff;*/
+-webkit-transform: rotate(-90deg);
+/*-moz-transform: rotate(-90deg);*/
+width: 200px;
+position: absolute;
+left: 150px;
+top: 130px;
+}
+
+#Judet {
+/*background-color: #e6faff;*/
+-webkit-transform: rotate(-90deg);
+/*-moz-transform: rotate(-90deg);*/
+width: 200px;
+position: absolute;
+left: 185px;
+top: 340px;
+}
+
+#Adresa {
+/*background-color: #e6faff;*/
+-webkit-transform: rotate(-90deg);
+/*-moz-transform: rotate(-90deg);*/
+width: 200px;
+position: absolute;
+left: 125px;
+top: 380px;
+}
