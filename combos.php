@@ -48,33 +48,41 @@ if ( ! defined( 'ABSPATH' ) ) {
    <div class="table-responsive">
     <br />
 
-
-    <SELECT name="Anul" id ="anul" onChange ="showLunaAnul(),ClearForm(),IncarcaDatele()">
       <?php
-    global $wpdb;
-    $query = "SELECT Anul FROM wp_tblanul where Anul <= Year(Now()) order by Anul desc ";
-    $results = $wpdb->get_results($query) or die(mysql_error());
-
-     foreach ($results as $row) {
-   echo "<option id='anul' value='blue'>$row->Anul</option>";
-   }
+      // set start and end year range
+      $yearArray = range(date(Y), 2010);
+      //Months range
+      $Months = range(12,1);
 
       ?>
-  </SELECT>
+      <!-- displaying the dropdown list -->
+      <SELECT name="Anul" id ="anul" onChange ="showLunaAnul(),ClearForm(),IncarcaDatele()">
+
+          <?php
+          foreach ($yearArray as $year) {
+              // if you want to select a particular year
+              $selected = ($year == date(Y)) ? 'selected' : '';
+              echo '<option '.$selected.' value="'.$year.'">'.$year.'</option>';
+          }
+          ?>
+    </SELECT>
 
     <!--ComboBox Luna  -->
 
     <SELECT id="luna" onChange ="showLunaAnul(),ClearForm(),IncarcaDatele()">
+
       <?php
-      global $wpdb;
-    $query = "SELECT MonthNR FROM wp_tblmonths order by MonthNR desc";
-    $results = $wpdb->get_results($query) or die(mysql_error());
+      foreach ($Months as $month) {
 
-          foreach ($results as $row){
-    echo "<option id='luna' 'value='blue'>$row->MonthNR</option>";
+        $month = (str_pad($month, 2, "0", STR_PAD_LEFT));
+       $selected = ($month == date('m')) ? 'selected' : '';
 
-     }
-  ?>
+          echo '<option '.$selected.' value="'.$month.'">'.$month.'</option>';
+      }
+      ?>
+
+
+
     </SELECT>
 <!--Finalizare ComboLuna  -->
 
@@ -118,9 +126,8 @@ return anluna;
        <th width="20%">Nume</th>
        <th width="35%">Prenume</th>
        <th width="25%">Localitate</th>
-       <th width="10%">Total</th>
-       <th width="10%">Mandat</th>
-       <th width="10%">Buletin</th>
+       <th width="15%">Total</th>
+       <th width="20%">Formular</th>
        <th width="10%">Eticheta</th>
       </tr>
      </thead>
@@ -180,8 +187,15 @@ function ClearForm(){
 
 
 <script>
-function deschidePrint_id(order_id){
+function deschideEticheta_id(order_id){
 
-window.open("../wp-content/plugins/posta-romana/printing/mandat.php?order_id="+order_id, "width 100, height = 300");
+window.open("../wp-content/plugins/posta-romana/printing/eticheta.php?order_id="+order_id);
+}
+</script>
+
+<script>
+function deschideMandat_id(order_id){
+
+window.open("../wp-content/plugins/posta-romana/printing/mandat.php?order_id="+order_id);
 }
 </script>

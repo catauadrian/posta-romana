@@ -5,8 +5,8 @@ if (!isset($_POST['test'])) {
 }
 
 
-// include_once($_SERVER['DOCUMENT_ROOT'] . '/wp-load.php');
-include_once $_SERVER['DOCUMENT_ROOT'] . '/wp-config.php';
+require_once($_SERVER['DOCUMENT_ROOT'] . $folder . '/wp-load.php');
+require_once($_SERVER['DOCUMENT_ROOT'] . $folder . '/wp-config.php');
 
 
 global $wpdb;
@@ -44,12 +44,12 @@ from
 group by
   p.ID
 HAVING
-  anluna = $anluna1
+  anluna = '".$_POST["anluna1"]."'
 order by
    p.id desc ";
 
-// //'".$_POST['anluna1']."'
-// select * from cli_jur_view where anluna = '".$_POST["anluna1"]."'
+// modify query like here // HAVING anluna = '".$_POST["anluna1"]."' and order_items like '%poştă%'
+// this is for nexus db -- select * from cli_jur_view where anluna = '".$_POST["anluna1"]."'
 // order by id desc ";
 
 
@@ -60,19 +60,15 @@ $data = array();
 if ($row_count !== 0) {
     foreach( $results as $result ) {
 
-        // echo $result->order_id;
-        // echo $result->Anul;
-
   $sub_array = array();
   $sub_array[] = $result->order_id;
   $sub_array[] = $result->doc_date;
-  $sub_array[] = $result->billing_first_name;
   $sub_array[] = $result->billing_last_name;
+  $sub_array[] = $result->billing_first_name;
   $sub_array[] = $result->billing_city;
   $sub_array[] = $result->order_total;
-  $sub_array[] = '<a href="javascript:deschidePrint_id('.$result->order_id.')" class="btn btn-primary" role="button">Mandat</a>';
-  $sub_array[] = '<a href="javascript:deschidePrint_id('.$result->order_id.')" class="btn btn-info" role="button">Buletin</a>';
-  $sub_array[] = '<a href="javascript:deschidePrint_id('.$result->order_id.')" class="btn btn-warning" role="button">Eticheta</a>';
+  $sub_array[] = '<a href="javascript:deschideMandat_id('.$result->order_id.')" class="btn btn-info" role="button">Formular</a>';
+  $sub_array[] = '<a href="javascript:deschideEticheta_id('.$result->order_id.')" class="btn btn-warning" role="button">Eticheta</a>';
   $data[] = $sub_array;
     }
 

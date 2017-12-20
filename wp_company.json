@@ -1,0 +1,21 @@
+{
+     "company":
+    [
+      {
+        "id":"1",
+        "nume":"Test Company",
+        "codfiscal":"1000000",
+        "numar":"00",
+        "loc":"Floresti",
+        "judet":"Cluj",
+        "telefon":"00000000",
+        "cod_postal":"000000",
+        "email":"comanda@email.test",
+        "strada":"PRINCIPALA",
+        "banca":"BANCA TRANSILVANIA",
+        "IBAN":"RO000000000000",
+        "LocBanca":"CLUJ",
+        "tara":"Romania"
+       }
+    ]
+}

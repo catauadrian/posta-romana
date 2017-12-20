@@ -1,18 +1,20 @@
 <?php
 /*
  * Plugin Name: Posta-Romana
- * Plugin URI:  https://catauadrian.serveftp.com
+ * Plugin URI:  https://github.com/catauadrian/posta-romana
  * Description: A plugin made for internal use generate postal romanian documents.
  * Version:     1.0.0
  * Author:      Catau Adrian
- * Author URI:  https://catauadrian.serveftp.com
+ * Author URI:  https://progstarters.blogspot.ro
  * License:     GPL-2.0+
  * Copyright:   GPLv2 or later
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
-    exit; // disable direct access
+    die ('Nu incerca sa pui scripturi aiuriea');
 }
+
+
 
 add_action('admin_menu', 'post_romana_setup_menu');
 
@@ -23,5 +25,6 @@ function post_romana_setup_menu(){
 function load_combos(){
 
 include_once( plugin_dir_path( __FILE__ ) . 'combos.php');
+
 
 }
