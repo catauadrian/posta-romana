@@ -64,7 +64,7 @@ if(isset($_GET["order_id"])){
 
 
 
-$jsonData = file_get_contents ("../wp_company.json");
+$jsonData = file_get_contents("../wp_company.json");
         $json = json_decode($jsonData, true);
 
 $NumeCompany =  $json["company"][0]["nume"];
@@ -118,7 +118,7 @@ $pdf->RotatedText(1,14, $LocCompany . " " . $Cod_postalCompany, 0);
 $pdf->RotatedText(1,19, $TaraCompany, 0);
 
 $pdf->RotatedText(10,30, 'DESTINATAR:',0);
-$pdf->RotatedText(1,35, 'Numele si Prenumele: ' . strtoupper($PrenumeClient . " " . $NumeClient), 0);
+$pdf->RotatedText(1,35, 'Numele si Prenumele: ' . strtoupper($NumeClient . " " . $PrenumeClient), 0);
 $pdf->RotatedText(1,40, $Adresa1 ." ". $Adresa2, 0);
 $pdf->RotatedText(1,45, 'Cod Postal: '. $CodPostal, 0);
 $pdf->RotatedText(1,50, 'Localitate: ' . $Localitate, 0);

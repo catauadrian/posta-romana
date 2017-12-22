@@ -69,7 +69,7 @@ if(isset($_GET["order_id"])){
    $ValoareStatistica = $instance->strLei($ValColet,'','.');
 
 
-   $jsonData = file_get_contents ("../wp_company.json");
+   $jsonData = file_get_contents("../wp_company.json");
            $json = json_decode($jsonData, true);
 
    $NumeCompany =  $json["company"][0]["nume"];
@@ -120,7 +120,7 @@ $pdf->RotatedText(40,110,$ValColet,90);
 $pdf->RotatedText(40,80, strtoupper($ValoareStatistica),90);
 $pdf->RotatedText(45,112,$numar,90);
 $pdf->RotatedText(45,98, $ramburslitere,90);
-$pdf->RotatedText(51,117, strtoupper($PrenumeClient ." ". $NumeClient), 90);
+$pdf->RotatedText(51,117, strtoupper($NumeClient ." ". $PrenumeClient), 90);
 $pdf->RotatedText(51,30, $TelefonClient,90);
 $pdf->RotatedText(57,127, $Adresa1 ." ". $Adresa2, 90);
 $pdf->RotatedText(63,116, $CodPostal, 90);
@@ -142,7 +142,7 @@ $pdf->RotatedText(96,112, $EmailCompany, 90);
 
 // - Date a-treia sectiune Aviz de primire
 
-$pdf->RotatedText(136,116, strtoupper($PrenumeClient ." ". $NumeClient), 90);
+$pdf->RotatedText(136,116, strtoupper($NumeClient ." ". $PrenumeClient), 90);
 $pdf->RotatedText(136,26, $TelefonClient, 90);
 $pdf->RotatedText(144,127, $Adresa1 ." ". $Adresa2, 90);
 $pdf->RotatedText(156,70,$ValColet . " RON",90);
@@ -162,7 +162,7 @@ $pdf->RotatedText(169,31, $LocCompany, 90);
 
 
 
-$pdf->RotatedText(3,205, strtoupper($PrenumeClient ." ". $NumeClient), 0);
+$pdf->RotatedText(3,205, strtoupper($NumeClient ." ". $PrenumeClient), 0);
 $pdf->RotatedText(8,213, $Adresa1 ." ". $Adresa2, 0);
 $pdf->RotatedText(10,217, $CodPostal, 0);
 $pdf->RotatedText(37,217, $Localitate, 0);
@@ -185,7 +185,7 @@ $pdf->RotatedText(92,225, $LocBancaCompany, 0);
 
 // - sub Date Expeditor
 
-$pdf->RotatedText(81,229, strtoupper($PrenumeClient ." ". $NumeClient), 0);
+$pdf->RotatedText(81,229, strtoupper($NumeClient ." ". $PrenumeClient), 0);
 $pdf->RotatedText(84,232, $Localitate, 0);
 $pdf->SetY(239);
 $pdf->SetX(67);
