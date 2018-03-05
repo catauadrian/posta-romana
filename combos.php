@@ -86,22 +86,6 @@ if ( ! defined( 'ABSPATH' ) ) {
     </SELECT>
 <!--Finalizare ComboLuna  -->
 
-
-<!--function to set initial month, actually current month  -->
-
-<script>
-  function SetInitialMonth(){
-
-    var lu = '<?php echo date('m'); ?>';
-
-    var currentMonth = document.getElementById('luna');
-    currentMonth.value = lu;
-}
-SetInitialMonth();
-</script>
-
-
-
 <script>
 function showLunaAnul(){
  var anul = document.getElementById('anul');
