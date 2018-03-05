@@ -163,9 +163,12 @@ $pdf->RotatedText(169,31, $LocCompany, 90);
 
 
 $pdf->RotatedText(3,205, strtoupper($NumeClient ." ". $PrenumeClient), 0);
-$pdf->RotatedText(8,213, $Adresa1 ." ". $Adresa2, 0);
-$pdf->RotatedText(10,217, $CodPostal, 0);
-$pdf->RotatedText(37,217, $Localitate, 0);
+$pdf->SetY(210);
+$pdf->SetX(2.4);
+$pdf->MultiCell(58.8,4,$Adresa1 . ' ' . $Adresa2 . ' '. $CodPostal . ' ' .$Localitate ,1,1,'L','M');
+// $pdf->RotatedText(8,213, $Adresa1 ." ". $Adresa2, 0);
+// $pdf->RotatedText(10,217, $CodPostal, 0);
+// $pdf->RotatedText(37,217, $Localitate, 0);
 $pdf->RotatedText(14,236, $TelefonClient, 0);
 $pdf->SetY(245);
 $pdf->SetX(5);
