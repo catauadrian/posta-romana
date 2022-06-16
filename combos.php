@@ -13,12 +13,15 @@ if ( ! defined( 'ABSPATH' ) ) {
 <html>
   <head>
   <title>Posta Romana</title>
-  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script> -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
-  <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
-  <script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js"></script>
-  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css" />
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+   <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+   <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap.min.js"></script>
+   <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap.min.css" />
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
 
   <style>
  body
@@ -50,7 +53,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
       <?php
       // set start and end year range
-      $yearArray = range(date(Y), 2010);
+      $yearArray = range(date('Y'), 2010);
       //Months range
       $Months = range(12,1);
 
@@ -61,7 +64,7 @@ if ( ! defined( 'ABSPATH' ) ) {
           <?php
           foreach ($yearArray as $year) {
               // if you want to select a particular year
-              $selected = ($year == date(Y)) ? 'selected' : '';
+              $selected = ($year == date('Y')) ? 'selected' : '';
               echo '<option '.$selected.' value="'.$year.'">'.$year.'</option>';
           }
           ?>
@@ -85,6 +88,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 
     </SELECT>
 <!--Finalizare ComboLuna  -->
+
+
 
 <script>
 function showLunaAnul(){
@@ -130,19 +135,22 @@ return anluna;
     function IncarcaDatele() {
 
           jQuery(document).ready(function() {
+          // var $ = jQuery.noConflict();
                   var anluna1 = showLunaAnul();
-                  var test = "test1";
+                  var test = "test";
                   var dataTable = jQuery('#user_data').DataTable({
                           "processing": true,
 
-                          // "serverSide":true,
+                           // "serverSide":true,
                           "order": [],
                           "ajax": {
                               url: "../wp-content/plugins/posta-romana/fetch.php",
-                              type: "POST",
-                              data: {anluna1,test}
 
-                          },
+
+                              type: "POST",
+                              crossDomain: true,
+                              data: {anluna1,test}
+                            },
 
                           "columnDefs": [{
                               "targets": -1,
